@@ -1,0 +1,236 @@
+
+\lstdefinelanguage{pseudo}
+{
+morekeywords={FUNCTION, MODULE, BEGIN, END, PRINT, FOR, DO, IF, ELSE, THEN, RETURN, ASSERT, AND, OR},
+morekeywords=[2]{MAIN, INTEGER, ARRAY,REAL, FLAG, STRING},
+morekeywords=[3]{OPENW, OPENR, CLOSE, WRITE},
+sensitive=true,
+morecomment=[l]{//}
+}
+
+%Dummy docs language to get nice formatting and colours easily
+\lstdefinelanguage{docs}
+{
+morekeywords={int, char, const, double, class, flag},
+morekeywords=[2]{Parameters, Returns},
+sensitive=true,
+morecomment=[l]{\#}
+}
+\lstdefinelanguage{make}
+{
+morekeywords={target},
+morekeywords=[2]{prerequisites},
+morekeywords=[3]{recipe},
+sensitive=false,
+morecomment=[l]{\#}
+}
+\lstdefinelanguage{debug}
+{
+morekeywords={break, print, run, continue, if, delete, clear, quit},
+morekeywords=[2]{gdb},
+sensitive=true,
+morecomment=[l]{\#}
+}
+
+
+\lstdefinestyle{pseudostyle}{
+    language=pseudo,
+    tabsize=3,
+    frame=shadowbox,
+    rulesepcolor=\color{gray},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{textblue}\bf,
+    keywordstyle=[2]\color{textpurple}\bf,
+    keywordstyle=[3]\color{warwickred}\bf,
+    stringstyle=\color{warwickred},
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    breaklines=true,
+    showstringspaces=false,
+    basicstyle=\footnotesize
+    %emph={str},emphstyle={\color{magenta}}
+  } 
+\lstdefinestyle{docstyle}{
+    language=docs,
+    tabsize=3,
+    frame=shadowbox,
+    rulesepcolor=\color{gray},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{textblue}\bf,
+    keywordstyle=[2]\color{textpurple}\bf,
+    keywordstyle=[3]\color{warwickred}\bf,
+    stringstyle=\color{warwickred},
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    breaklines=true,
+    showstringspaces=false,
+    basicstyle=\footnotesize
+  } 
+\lstdefinestyle{debugstyle}{
+    language=debug,
+    tabsize=3,
+    frame=shadowbox,
+    rulesepcolor=\color{gray},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{textblue}\bf,
+    keywordstyle=[2]\color{textpurple}\bf,
+    stringstyle=\color{warwickred},
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    breaklines=true,
+    showstringspaces=false,
+    basicstyle=\footnotesize
+    %emph={str},emphstyle={\color{magenta}}
+  } 
+
+\lstdefinestyle{makestyle}{
+    language=make,
+    tabsize=3,
+    frame=shadowbox,
+    rulesepcolor=\color{gray},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{textblue}\bf,
+    keywordstyle=[2]\color{textpurple}\bf,
+    keywordstyle=[3]\color{warwickred}\bf,
+    stringstyle=\color{warwickred},
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    breaklines=true,
+    showstringspaces=false,
+    basicstyle=\footnotesize
+    %emph={str},emphstyle={\color{magenta}}
+  } 
+
+\lstdefinestyle{nostyle}{
+    tabsize=3,
+    frame=shadowbox,
+    rulesepcolor=\color{gray},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{textblue}\bf,
+    keywordstyle=[2]\color{textpurple}\bf,
+    stringstyle=\color{warwickred},
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    breaklines=true,
+    showstringspaces=false,
+    basicstyle=\footnotesize
+  } 
+
+\lstdefinestyle{pystyle}{
+    language=python,
+    tabsize=3,
+    frame=shadowbox,
+    rulesepcolor=\color{gray},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{textblue}\bf,
+    stringstyle=\color{warwickred},
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    breaklines=true,
+    showstringspaces=false,
+    basicstyle=\footnotesize
+  } 
+\lstdefinestyle{bashstyle}{
+    language=bash,
+    tabsize=3,
+    frame=shadowbox,
+    rulesepcolor=\color{gray},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{textblue}\bf,
+    stringstyle=\color{warwickred},
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    breaklines=true,
+    showstringspaces=false,
+    basicstyle=\footnotesize
+  } 
+
+
+\lstdefinestyle{forstyle}{
+    language=fortran,
+    tabsize=3,
+    frame=shadowbox,
+    rulesepcolor=\color{gray},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{textblue}\bf,
+    stringstyle=\color{warwickred},
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    breaklines=true,
+    showstringspaces=false,
+    basicstyle=\footnotesize
+  } 
+
+\lstdefinestyle{omforstyle}{
+    language=fortran,
+    tabsize=3,
+    frame=shadowbox,
+    rulesepcolor=\color{gray},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{textblue}\bf,
+    stringstyle=\color{warwickred},
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    breaklines=true,
+    showstringspaces=false,
+    basicstyle=\footnotesize,
+    moredelim=**[is][\color{orange}]{@}{@}, %For OMP directives etc
+    literate={\\!}{{!}}1,
+    deletekeywords={PRIVATE},
+    classoffset=1,
+    otherkeywords={omp_lib, omp_get_max_threads, omp_get_thread_num},
+    morekeywords={omp_lib, omp_get_max_threads, omp_get_thread_num},
+    keywordstyle=\color{orange}\bf,
+    classoffset=0
+  } 
+\lstdefinestyle{mpiforstyle}{
+    language=fortran,
+    literate=*,
+    tabsize=3,
+    frame=shadowbox,
+    rulesepcolor=\color{gray},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{textblue}\bf,
+    stringstyle=\color{warwickred},
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    breaklines=true,
+    showstringspaces=false,
+    basicstyle=\footnotesize,
+    classoffset=1,
+    keywords={mpi, MPI_Init, MPI_Finalize, MPI_Comm_size, MPI_Comm_rank, MPI_Send, MPI_Recv, MPI_Sendrecv},
+    keywordstyle=\color{warwickorange}\bf,
+    classoffset=2,
+    keywords={MPI_COMM_WORLD, MPI_integer, MPI_MAX},
+    keywordstyle=\color{textpurple}\bf,
+    classoffset=3,
+    keywords={rank, nproc, stat, errcode},
+    keywordstyle=\color{warwickblue}\bf,
+    classoffset=0
+  } 
+
+\lstdefinestyle{cstyle}{
+    language=c,
+    tabsize=3,
+    frame=shadowbox,
+    rulesepcolor=\color{gray},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{textblue}\bf,
+    stringstyle=\color{warwickred}\bf,
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    breaklines=true,
+    showstringspaces=false,
+    basicstyle=\footnotesize
+  } 

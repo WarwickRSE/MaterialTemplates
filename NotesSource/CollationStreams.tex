@@ -1,0 +1,27 @@
+
+\newoutputstream{releasefixes}
+\immediate\openoutputfile{\jobname.FixBeforeRelease}{releasefixes}
+\newoutputstream{commandments}
+\immediate\openoutputfile{\jobname.comm}{commandments}
+\newoutputstream{suggestions}
+\immediate\openoutputfile{\jobname.sugg}{suggestions}
+
+%text effects
+\newcommand{\fbrtext}[1]{\textcolor{red}{\textbf{#1}}}
+
+%text and file io
+\newcommand{\fbr}[1]{\fbrtext{#1}\addtostream{releasefixes}{Line \the\inputlineno, File \currfilename : #1}}
+
+%Must and should text effects
+\newcommand{\musttext}[1]{\textcolor{red}{\textbf{#1}}}
+\newcommand{\shouldtext}[1]{\textcolor{warwickorange}{\textbf{#1}}}
+
+%Must and should text and file io
+\newcommand{\mustnt}[1]{\musttext{#1}\addtostream{commandments}{\noexpand\item #1}}
+\newcommand{\shouldnt}[1]{\shouldtext{#1}\addtostream{suggestions}{\noexpand\item #1}}
+\newcommand{\must}[1]{\mustnt{#1}}
+\newcommand{\should}[1]{\shouldnt{#1}}
+
+
+\newcommand{\presnote}[1]{}
+\newcommand{\aside}[1]{\emph{#1}}
