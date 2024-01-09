@@ -1,4 +1,25 @@
 
+
+%Fortran and C specific parts are coloured
+\newcommand{\fortonly}[1]{\textcolor{textblue}{#1}}
+\newcommand{\conly}[1]{\textcolor{warwickred}{#1}}
+
+%Presenter/typesetter notes. Defaults to swallowing, swap to other to leave unchanged
+\newcommand{\presnote}[1]{}
+%\newcommand{\presnote}[1]{#1}
+
+\newcommand{\aside}[1]{\emph{#1}}
+
+%Extra emphasis
+\newcommand{\superemph}[1]{\textcolor{red}{\emph{#1}}}
+
+%Shaded aside boxes
+\usepackage[breakable]{tcolorbox}
+\newenvironment{asidebox}[1]{
+	\begin{tcolorbox}[width=0.95\textwidth,colback={grey}, breakable, title=#1]}
+{\end{tcolorbox}   
+}
+
 \lstdefinelanguage{pseudo}
 {
 morekeywords={FUNCTION, MODULE, BEGIN, END, PRINT, FOR, DO, IF, ELSE, THEN, RETURN, ASSERT, AND, OR},
@@ -7,7 +28,6 @@ morekeywords=[3]{OPENW, OPENR, CLOSE, WRITE},
 sensitive=true,
 morecomment=[l]{//}
 }
-
 %Dummy docs language to get nice formatting and colours easily
 \lstdefinelanguage{docs}
 {
@@ -136,23 +156,6 @@ morecomment=[l]{\#}
     showstringspaces=false,
     basicstyle=\footnotesize
   } 
-\lstdefinestyle{bashstyle}{
-    language=bash,
-    tabsize=3,
-    frame=shadowbox,
-    rulesepcolor=\color{gray},
-    commentstyle=\color{codegreen},
-    keywordstyle=\color{textblue}\bf,
-    stringstyle=\color{warwickred},
-    numbers=left,
-    numberstyle=\tiny,
-    numbersep=5pt,
-    breaklines=true,
-    showstringspaces=false,
-    basicstyle=\footnotesize
-  } 
-
-
 \lstdefinestyle{forstyle}{
     language=fortran,
     tabsize=3,
@@ -168,57 +171,6 @@ morecomment=[l]{\#}
     showstringspaces=false,
     basicstyle=\footnotesize
   } 
-
-\lstdefinestyle{omforstyle}{
-    language=fortran,
-    tabsize=3,
-    frame=shadowbox,
-    rulesepcolor=\color{gray},
-    commentstyle=\color{codegreen},
-    keywordstyle=\color{textblue}\bf,
-    stringstyle=\color{warwickred},
-    numbers=left,
-    numberstyle=\tiny,
-    numbersep=5pt,
-    breaklines=true,
-    showstringspaces=false,
-    basicstyle=\footnotesize,
-    moredelim=**[is][\color{orange}]{@}{@}, %For OMP directives etc
-    literate={\\!}{{!}}1,
-    deletekeywords={PRIVATE},
-    classoffset=1,
-    otherkeywords={omp_lib, omp_get_max_threads, omp_get_thread_num},
-    morekeywords={omp_lib, omp_get_max_threads, omp_get_thread_num},
-    keywordstyle=\color{orange}\bf,
-    classoffset=0
-  } 
-\lstdefinestyle{mpiforstyle}{
-    language=fortran,
-    literate=*,
-    tabsize=3,
-    frame=shadowbox,
-    rulesepcolor=\color{gray},
-    commentstyle=\color{codegreen},
-    keywordstyle=\color{textblue}\bf,
-    stringstyle=\color{warwickred},
-    numbers=left,
-    numberstyle=\tiny,
-    numbersep=5pt,
-    breaklines=true,
-    showstringspaces=false,
-    basicstyle=\footnotesize,
-    classoffset=1,
-    keywords={mpi, MPI_Init, MPI_Finalize, MPI_Comm_size, MPI_Comm_rank, MPI_Send, MPI_Recv, MPI_Sendrecv},
-    keywordstyle=\color{warwickorange}\bf,
-    classoffset=2,
-    keywords={MPI_COMM_WORLD, MPI_integer, MPI_MAX},
-    keywordstyle=\color{textpurple}\bf,
-    classoffset=3,
-    keywords={rank, nproc, stat, errcode},
-    keywordstyle=\color{warwickblue}\bf,
-    classoffset=0
-  } 
-
 \lstdefinestyle{cstyle}{
     language=c,
     tabsize=3,

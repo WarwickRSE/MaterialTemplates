@@ -1,0 +1,82 @@
+\documentclass[12pt, openany]{book}
+\usepackage[lmargin = 3cm, rmargin = 3cm, top=2cm]{geometry}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[normalem]{ulem}
+\usepackage{graphicx}
+\usepackage{float}
+\include{ColourDefs}
+\usepackage{footnote}
+
+\input{ReleaseFixes} %% Sets up streams so you can flag things as \fbr{} and they will show in red and also appear in a custom file <filename>.FixBeforeRelease with line numbers to be fixed later
+\input{CollationStreams}%% Sets up must, should, mustnt and shouldnt text extraction
+
+\PassOptionsToPackage{hyphens}{url}\usepackage[colorlinks, linkcolor=warwickblue]{hyperref}
+
+\usepackage[toc,section=section, seeautonumberlist]{glossaries}
+
+
+\include{AuthorInfo}
+%Make title and author available to title page
+\makeatletter
+\let\newtitle\@title
+\let\newauthor\@author
+\makeatother
+\makesavenoteenv{table}
+\include{LanguageDefs} %% Definitions for colours and code syntax highlighting
+
+\makenoidxglossaries
+\loadglsentries{glossary_defs}%% Your glossary words
+
+\begin{document}
+\input{NiceTitle} %% Fancy title page
+
+\let\cleardoublepage\clearpage
+\setcounter{tocdepth}{1}
+
+\pagenumbering{gobble}
+\tableofcontents
+
+
+%% Boilerplate preamble
+\frontmatter \chapter{Preface}
+\section{About these Notes}
+%----------FILL IN HERE----------------------------
+These notes were written by \newauthor, Senior Research Software Engineers in the Scientific Computing Research Technology Platform at the University of Warwick for a Workshop first run in \fbr{When??} at the University of Warwick.
+%----------DONE----------------------------
+
+ %----------FILL IN HERE----------------------------
+\textbf{This work, except where otherwise noted, is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. To view a copy of this license, visit \url{http://creativecommons.org/licenses/by-nc-nd/4.0/}}. 
+\begin{figure}[h]
+\includegraphics[width=0.15\textwidth]{by-nc-sa-eu}
+\end{figure}
+
+\noindent The notes may redistributed freely with attribution, but may not be used for commercial purposes nor altered or modified. The Angry Penguin and other reproduced material, is clearly marked in the text and is not included in this declaration. 
+%----------DONE----------------------------
+
+%% Name of typesetter!
+The notes  were typeset in \LaTeX by \typesettername. \\Errors can be reported to \href{mailto:rse@warwick.ac.uk}{rse@warwick.ac.uk}
+
+ %----------FILL IN HERE----------------------------
+\section{Example Programs}\label{sec:egCode}
+Several sections of these notes benefit from hands-on practise with the concepts and tools involved. Test code is available on Github at \url{https://github.com/WarwickRSE/}
+%----------DONE----------------------------
+
+\let\cleardoublepage\clearpage
+\mainmatter
+ %----------FILL IN HERE----------------------------
+\chapter{Chapter Name}\label{chap:name}
+\input{ChapterFile}
+%----------DONE----------------------------
+
+\chapter{Glossary of Terms}
+%Add all the glossary only terms
+\printnoidxglossary
+
+%\include{CollationOutputs} %Uncomment this to include Appendices containing all Must text
+
+%Add all the glossary only terms (defined in glossary_defs but not used in text)
+%Do this after all text etc, to get it right
+\glsaddallunused 
+
+\end{document}

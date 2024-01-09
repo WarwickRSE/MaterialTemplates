@@ -1,0 +1,13 @@
+%Close the streams so we can read from them below
+\immediate\closeoutputstream{thingsyoumustdo}
+
+%Optional - appendices
+\appendix
+
+%Include bullet lists of everything in must environment
+\chapter{Golden Rules}\label{sec:thingsyoumustdo}
+\section{Things You MUST ALWAYS do}
+\begin{itemize}
+    \input{\jobname.must}
+\end{itemize}
+

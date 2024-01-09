@@ -1,15 +1,10 @@
+%% Your glossary definitions go in here. Use them in the text with \gls{name} and \glspl{name}. Can define custom plurals if needed. 
 
-\newacronym[description ={Full Name; Definition}]{label}{Acro}{Full Name}
-
-\newglossaryentry{reference}{
-  name ={name},
-  description={Description, remember a full-stop will be auto-inserted}
+\newglossaryentry{processor}{
+  name ={processor},
+  description={Can refer to two related things: either a single physical computer ``main chip'', one or more of which may be installed, or a single, general purpose computing unit within such a chip},
+  see=[See also]{core}
 }
 
-\newglossaryentry{reference2}{
-  name ={name},
-  description={description},
-  see=[See also]{reference}
-}
-
+\newacronym[description ={Application Programming Interface; the set of routines (functions) which you call to interact with a library, service or similar }]{api}{API}{Application Programming Interface}
 

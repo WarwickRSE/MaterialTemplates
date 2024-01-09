@@ -1,0 +1,12 @@
+
+
+\usepackage{newfile}
+\usepackage{currfile}
+\newoutputstream{releasefixes}
+\immediate\openoutputfile{\jobname.FixBeforeRelease}{releasefixes}
+
+%text effects
+\newcommand{\fbrtext}[1]{\textcolor{red}{\textbf{#1}}}
+
+%text and file io
+\newcommand{\fbr}[1]{\fbrtext{#1}\addtostream{releasefixes}{\currfilename: at Line \the\inputlineno : #1}}

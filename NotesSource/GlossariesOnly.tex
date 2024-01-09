@@ -1,0 +1,37 @@
+\documentclass[12pt, openany]{article}
+\usepackage[lmargin = 3cm, rmargin = 3cm, top=2cm]{geometry}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage[normalem]{ulem}
+\include{ColourDefs}
+
+\PassOptionsToPackage{hyphens}{url}\usepackage[colorlinks, linkcolor=warwickblue]{hyperref}
+\usepackage[toc,section=section, seeautonumberlist]{glossaries}
+
+\include{AuthorInfo}
+%Make title and author available to title page
+\makeatletter
+\let\newtitle\@title
+\let\newauthor\@author
+\makeatother
+
+\makenoidxglossaries
+\loadglsentries{glossary_defs}%% Your glossary words
+
+\begin{document}
+\input{NiceTitle} %% Fancy title page
+
+\let\cleardoublepage\clearpage
+\setcounter{tocdepth}{1}
+
+Here are all of the glossary terms for these notes
+%Add all the glossary only terms
+\printnoidxglossary
+
+%\include{CollationOutputs} %Uncomment this to include Appendices containing all Must text
+
+%Add all the glossary only terms (defined in glossary_defs but not used in text)
+%Do this after all text etc, to get it right
+\glsaddall
+
+\end{document}
